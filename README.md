@@ -16,7 +16,7 @@ Welcome to the Weekly Data Processor! This Streamlit app allows you to process, 
      ```
    - Navigate to the project directory:
      ```bash
-     cd ipr-data-processor
+     cd weekly-data-processor
      ```
    - Create and activate a virtual environment (replace `<your_venv_folder_name>` with your preferred name):
      ```bash
