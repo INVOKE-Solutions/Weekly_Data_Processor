@@ -1,8 +1,8 @@
-# IPR Data Processor
+# Weekly Data Processor
 
 [![Streamlit](https://static.streamlit.io/badges/streamlit_badge_red.svg)](https://ipr-data-enrichment.streamlit.app/)
 
-Welcome to the IPR Data Processor! This Streamlit app allows you to process, clean, and enhance JSON data related to IPR programs. It provides a user-friendly interface to upload JSON files, clean and format the data, and download the processed output.
+Welcome to the Weekly Data Processor! This Streamlit app allows you to process, clean, and enhance JSON data related to IPR programs. It provides a user-friendly interface to upload JSON files, clean and format the data, and download the processed output.
 
 ## Getting Started
 
@@ -12,11 +12,11 @@ Welcome to the IPR Data Processor! This Streamlit app allows you to process, cle
 2. **Setup Instructions**
    - Clone the repository:
      ```bash
-     git clone https://github.com/INVOKE-Solutions/ipr_data_processor.git
+     git clone https://github.com/INVOKE-Solutions/Weekly_Data_Processor.git
      ```
    - Navigate to the project directory:
      ```bash
-     cd ipr-data-processor
+     cd weekly-data-processor
      ```
    - Create and activate a virtual environment (replace `<your_venv_folder_name>` with your preferred name):
      ```bash
