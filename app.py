@@ -228,10 +228,10 @@ def clean_and_process_dataframe(df, postcode_df):
 
     # Add new columns with default values (adjust values as needed)
     new_columns = {
-        'miskin': 'default_value',
-        'miskin_tegar': 'default_value',
-        'str_mof': 'default_value',
-        'belum_disemak': 'default_value'
+        'miskin': '',
+        'miskin_tegar': '',
+        'str_mof': '',
+        'belum_disemak': ''
     }
     for col, value in new_columns.items():
         combined_df[col] = value
@@ -284,7 +284,7 @@ def main():
 
     # Display the image and title at the top
     st.image("Photo/invoke_logo.png", use_column_width=True)
-    st.title("IPR Data Processor")
+    st.title("Weekly Data Processor")
     
     # Password protection
     password = st.secrets["password"]["value"]
