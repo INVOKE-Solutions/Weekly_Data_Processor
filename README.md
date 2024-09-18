@@ -2,7 +2,7 @@
 
 [![Streamlit](https://static.streamlit.io/badges/streamlit_badge_red.svg)](https://weekly-data-enrichment.streamlit.app/)
 
-Welcome to the Weekly Data Processor! This Streamlit app allows you to process, clean, and enhance JSON data related to IPR programs. It provides a user-friendly interface to upload JSON files, clean and format the data, and download the processed output.
+Welcome to the Weekly Data Processor! This Streamlit app allows you to process, clean, and enhance JSON data related to programs. It provides a user-friendly interface to upload JSON files, clean and format the data, and download the processed output.
 
 ## Getting Started
 
