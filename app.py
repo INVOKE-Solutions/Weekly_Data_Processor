@@ -182,7 +182,6 @@ def load_postcode_data():
         st.error(f"Error loading postcode data: {e}")
         return pd.DataFrame()
 
-
 def clean_and_process_dataframe(df, postcode_df):
     """Automatically drop unwanted columns and perform data cleaning while keeping IC numbers unchanged."""
     if df is None or df.empty:
@@ -213,10 +212,26 @@ def clean_and_process_dataframe(df, postcode_df):
     if 'address' in df.columns:
         df['address'] = clean_address(df['address'])
 
+        # Initialize a cache for geocoding
+        geocode_cache = {}
+
+        # Function to geocode an address with caching
+        def cached_geocode_address(address):
+            if address in geocode_cache:
+                return 'cached', geocode_cache[address]['lat'], geocode_cache[address]['lng']
+            else:
+                status, lat, lng = geocode_address(address)
+                if status == 'success':
+                    geocode_cache[address] = {'lat': lat, 'lng': lng}
+                return status, lat, lng
+
         # Add a progress bar
         with st.spinner('Geocoding addresses...'):
-            geocode_results = df['address'].apply(lambda addr: pd.Series(geocode_address(addr)))
+            geocode_results = df['address'].apply(lambda addr: pd.Series(cached_geocode_address(addr)))
             df[['geocode_status', 'lat', 'lon']] = geocode_results
+
+    # Continue with the rest of your function...
+
 
     # Reorder columns based on the specified order
     df = reorder_columns(df)
