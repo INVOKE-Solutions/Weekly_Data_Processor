@@ -156,20 +156,32 @@ def geocode_address(address):
     except Exception as e:
         return 'error', None, None
 
+# Function to add leading zero for four-digit values to make them five digits
+def add_leading_zero_to_four_digits(dataframe, column_name):
+    """Add a leading zero to four-digit values in the specified column to make them five digits."""
+    if column_name in dataframe.columns:
+        dataframe[column_name] = dataframe[column_name].apply(
+            lambda x: f"0{x}" if isinstance(x, int) and 1000 <= x < 10000 else x
+        )
+    return dataframe
 
-
-# Function to load postcode data from a fixed path
 def load_postcode_data():
     """Load postcode data from a fixed path."""
     postcode_file_path = "file/Malaysia-Postcodes-City-State-Mapping.xlsx"
     try:
-        return pd.read_excel(postcode_file_path)
+        postcode_df = pd.read_excel(postcode_file_path)
+        
+        # Add leading zero for four-digit postcodes to make them five digits
+        postcode_df = add_leading_zero_to_four_digits(postcode_df, 'postcode')  # Adjust as needed
+        
+        return postcode_df
     except FileNotFoundError:
         st.error(f"Postcode file not found: {postcode_file_path}")
         return pd.DataFrame()
     except Exception as e:
         st.error(f"Error loading postcode data: {e}")
         return pd.DataFrame()
+
 
 def clean_and_process_dataframe(df, postcode_df):
     """Automatically drop unwanted columns and perform data cleaning while keeping IC numbers unchanged."""
