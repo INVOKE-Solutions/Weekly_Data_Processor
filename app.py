@@ -294,7 +294,7 @@ def clean_and_process_dataframe(df, postcode_df):
     st.download_button(
         label="Download Combined Data as Excel",
         data=output,
-        file_name="combined_data_with_districts.xlsx",
+        file_name="IPR_Cleaned_Data_2024.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
 
