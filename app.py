@@ -125,7 +125,7 @@ def age_format(dataframe):
         year_str = ic_number[:2]
         year_int = int(year_str)
         birth_year = 2000 + year_int if year_int <= 20 else 1900 + year_int
-        current_year = 2024
+        current_year = 2025
         return current_year - birth_year
 
     # Add 'age' column without altering 'ic' column
@@ -294,7 +294,7 @@ def clean_and_process_dataframe(df, postcode_df):
     st.download_button(
         label="Download Combined Data as Excel",
         data=output,
-        file_name="IPR_Cleaned_Data_2024.xlsx",
+        file_name="IPR_Cleaned_Data_2025.xlsx",
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
 
